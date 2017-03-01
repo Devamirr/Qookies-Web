@@ -6981,7 +6981,8 @@ body a {
     position: absolute;
     right: 360px;
     text-align: center;
-    top: -38px; }
+    top: -38px;
+    z-index: 5; }
     @media only screen and (max-width: 767px) {
       #header .navbar .logo {
         margin: 0 auto;

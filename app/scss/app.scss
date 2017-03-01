@@ -95,7 +95,7 @@
       .leaf { transition: all $transition; border-radius: 20px;
         &:hover { background: $main;  }
        }
-      .logo { margin: 1em 0; position: absolute; right: 360px; text-align: center; top: -38px;
+      .logo { margin: 1em 0; position: absolute; right: 360px; text-align: center; top: -38px; z-index: 5;
         @media #{$mq-tablet-narrower}{ margin: 0 auto; position: relative; width: 60px; height: 80px; right: 0; top: -20px; background: url("../images/crown.jpg.svg"); background-repeat: no-repeat;; background-size: contain;}
         @media #{$mq-tablet}{ margin: 0.5em 0; right: 280px; top: -20px; }
         img { background-position: contain; width: 300px;
