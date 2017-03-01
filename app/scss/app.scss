@@ -133,6 +133,7 @@
     }
   }
   .orbit-container {
+    .orbit-timer.paused {  }
     .orbit-caption { display: none;
       @media #{$mq-tablet}{ display:none;}
       @media #{$mq-tablet-narrower}{ display: none;}
