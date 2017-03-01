@@ -48,3 +48,76 @@
 @import 'foundation/components/visibility';
 
 @import 'appstyles';
+@import 'colors';
+@import 'base';
+// @import 'typography';
+@import 'slick';
+@import 'kitchenSink';
+
+  $mq-mobile-narrower: "only screen and (max-width : 320px)";
+  $mq-mobile-wider: "only screen and (min-width : 320px)";
+
+  $mq-tablet-narrower: "only screen and (max-width : 767px)";
+  $mq-tablet-wider: "only screen and (min-width : 768px)";
+
+  $mq-desktop-narrower: "only screen and (max-width : 1023px)";
+  $mq-desktop-wider: "only screen and (min-width : 1024px)";
+
+  $mq-large-desktop-narrower: "only screen and (max-width : 1379px)";
+  $mq-large-desktop-wider: "only screen and (min-width : 1380px)";
+
+  $mq-tablet: "only screen and (min-width : 768px) and (max-width : 1023px)";
+  $mq-mobile: "only screen and (min-width : 320px) and (max-width : 480px)";
+
+
+  $background-color : #444;
+  $highlight-color : #cdcdcd;
+  $hover-color : #ED3D3D;
+
+  // on p = smoooth font scaling font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+
+  body{
+
+      a {
+    text-decoration: none;
+    text-transform: uppercase;
+    }
+  }
+
+  #header { transition: all $transition; font-size: 0.9em; font-weight: 300; background: $LightDark; margin: 0 auto; padding: 2em 0 1em; border-bottom: 4px solid $main;
+    @media #{$mq-tablet}{ padding: 1em 0;}
+    a { color: $text-color; }
+    .header-inner { max-width: 1024px; margin: 0 auto; position: relative; height: 4em;
+      @media #{$mq-tablet}{ max-width: 768px; height: 3em; }
+      @media #{$mq-tablet-narrower}{ height: 1em; padding: 0 1em 1em; }
+    }
+    .navbar {
+      .leaf { transition: all $transition; border-radius: 20px;
+        &:hover { background: $main;  }
+       }
+      .logo { margin: 1em 0; position: absolute; right: 360px; text-align: center; top: -38px;
+        @media #{$mq-tablet-narrower}{ margin: 0 auto; position: relative; width: 60px; height: 80px; right: 0; top: -20px; background: url("../images/crown.jpg.svg"); background-repeat: no-repeat;; background-size: contain;}
+        @media #{$mq-tablet}{ margin: 0.5em 0; right: 280px; top: -20px; }
+        img { background-position: contain; width: 300px;
+          @media #{$mq-tablet-narrower}{ width: 135px;  opacity: 0;}
+          @media #{$mq-tablet}{ width: 225px; }
+         }
+      }
+      .menu { text-align: center; margin-top: 2em;
+        @media #{$mq-tablet-narrower}{ display:none }
+        ul { list-style-type:none;
+          .video { margin-right: 345px;
+             @media #{$mq-tablet}{ margin-right: 260px;}
+          }
+        }
+        li { display: inline; padding: 10px 1.2em; margin-right: 40px;
+          @media #{$mq-desktop-wider}{padding: 10px 1.2em; margin-right: 40px;
+          }
+          &:last-child { margin-right: 0px }
+        }
+      }
+    }
+  }
+  //
+  //start homepage styles
+  #home { background: white; width: 100%; height: 100%; }
