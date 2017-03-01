@@ -77,6 +77,8 @@
   // on p = smoooth font scaling font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 
   body{
+    background: $main;
+    width: 100%; height: 100%;
 
       a {
     text-decoration: none;
@@ -121,3 +123,38 @@
   //
   //start homepage styles
   #home { background: white; width: 100%; height: 100%; }
+
+//start slider styles
+.slider { width: 100%; height: auto; transition: all $transition;
+  .white-shade { width: 100%; height: 720px; background: url("../images/slider-form.svg"); position: absolute; z-index: 3; left:0; background-repeat: no-repeat; background-size: contain; padding: 0; margin: 0;
+    @media #{$mq-tablet}{ height: 420px;}
+    @media #{$mq-tablet-narrower}{ display: none;
+
+    }
+  }
+  .orbit-container {
+    .orbit-caption { display: none;
+      @media #{$mq-tablet}{ display:none;}
+      @media #{$mq-tablet-narrower}{ display: none;}
+     }
+     .orbit-prev {
+       left: 20px;
+     }
+     .orbit-next {
+       right: 20px;
+     }
+     .orbit-progress { background: $snow; }
+    .orbit-bullets-container {   margin: 0px; position: absolute; bottom:0px; top: inherit; right: 0px; z-index: 4;
+      .orbit-bullets { margin: 0px 50px 30px auto;
+        @media #{$mq-tablet}{ margin: 0px 50px 20px auto; }
+        li { transition: all $transition;  width: 0.9rem; height: 0.9rem; padding: 5px; background: $LightDark;
+          @media #{$mq-tablet}{ padding: 0px; }
+          @media #{$mq-tablet-narrower}{ display: none;}
+          &:hover { background: $main;}
+          &:active { background: $main; }
+        }
+      }
+
+    }
+  }
+}
