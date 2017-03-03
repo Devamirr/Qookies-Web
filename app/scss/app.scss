@@ -232,6 +232,28 @@
   max-width: 1400px;
 }
 
+
+
+#about { width: 100%; height: 100%;
+  .aboutPic { position: relative; background: url("../images/kaspasAbout.jpg"); background-repeat: no-repeat; background-size: cover; height: auto; min-height: 443px; width: 100%;  background-size: center center;}
+  .add { width: 100%; height: 350px; padding: 50px 10px 10px 0px;
+    &.white { background: $snow; }
+    &.black { background: $LightDark; }
+    }
+
+  .white-shade { background-position: center bottom; bottom:0;  width: 100%; height: 70px; background: url("../images/about-form.svg"); position: absolute; z-index: 3; left:0; background-repeat: no-repeat; background-size: cover; padding: 0; margin: 0;
+    @media #{$mq-mobile-normal}{ display: none;
+
+    }
+  }
+
+  }
+
+
+
+
+
+
 // footer CSS
 
 .footer { background-color: $LightDark; padding: 1rem 1rem 1rem 1rem; border-top: 4px solid $main; text-align: center; color: $gray;

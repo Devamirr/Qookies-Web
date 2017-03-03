@@ -7201,6 +7201,43 @@ body {
 .full-width {
   max-width: 1400px; }
 
+#about {
+  width: 100%;
+  height: 100%; }
+  #about .aboutPic {
+    position: relative;
+    background: url("../images/kaspasAbout.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    min-height: 443px;
+    width: 100%;
+    background-size: center center; }
+  #about .add {
+    width: 100%;
+    height: 350px;
+    padding: 50px 10px 10px 0px; }
+    #about .add.white {
+      background: #F5F5F5; }
+    #about .add.black {
+      background: #1D1F16; }
+  #about .white-shade {
+    background-position: center bottom;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background: url("../images/about-form.svg");
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    margin: 0; }
+    @media only screen and (max-width: 767px) {
+      #about .white-shade {
+        display: none; } }
+
 .footer {
   background-color: #1D1F16;
   padding: 1rem 1rem 1rem 1rem;
