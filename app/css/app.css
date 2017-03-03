@@ -6940,9 +6940,9 @@ ul.slick-dots {
 
 /* all app scss styles here */
 body {
-  background: #D70778;
+  background: #1D1F16;
   width: 100%;
-  height: 100%; }
+  height: auto; }
   body a {
     text-decoration: none;
     text-transform: uppercase; }
@@ -6958,6 +6958,10 @@ body {
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
     #header {
       padding: 1em 0; } }
+  @media only screen and (max-width: 767px) {
+    #header {
+      height: 4em;
+      padding: 0; } }
   #header a {
     color: #fff; }
   #header .header-inner {
@@ -6971,69 +6975,173 @@ body {
         height: 3em; } }
     @media only screen and (max-width: 767px) {
       #header .header-inner {
-        height: 1em;
+        height: 4em;
         padding: 0 1em 1em; } }
-  #header .navbar .leaf {
-    transition: all 0.3s;
-    border-radius: 20px; }
-    #header .navbar .leaf:hover {
-      background: #D70778; }
-  #header .navbar .logo {
-    margin: 1em 0;
-    position: absolute;
-    right: 360px;
-    text-align: center;
-    top: -38px;
-    z-index: 5; }
+  #header .navbar {
+    top: 0;
+    height: 100%; }
     @media only screen and (max-width: 767px) {
-      #header .navbar .logo {
-        margin: 0 auto;
-        position: relative;
-        width: 60px;
-        height: 80px;
-        right: 0;
-        top: -20px;
-        background: url("../images/crown.jpg.svg");
-        background-repeat: no-repeat;
-        background-size: contain; } }
-    @media only screen and (min-width: 768px) and (max-width: 1023px) {
-      #header .navbar .logo {
-        margin: 0.5em 0;
-        right: 280px;
-        top: -20px; } }
-    #header .navbar .logo img {
-      background-position: contain;
-      width: 300px; }
+      #header .navbar {
+        left: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute; } }
+    #header .navbar .leaf {
+      transition: all 0.3s;
+      border-radius: 20px; }
+      #header .navbar .leaf:hover {
+        background: #D70778; }
+    #header .navbar .logo {
+      margin: 1em 0;
+      position: absolute;
+      right: 360px;
+      text-align: center;
+      top: -38px;
+      z-index: 5; }
       @media only screen and (max-width: 767px) {
-        #header .navbar .logo img {
-          width: 135px;
-          opacity: 0; } }
+        #header .navbar .logo {
+          position: absolute;
+          transform: translate(50%, 0px);
+          margin: 0 auto;
+          width: 60px;
+          height: 50px;
+          right: 50%;
+          top: 5px;
+          background: url("../images/crown.jpg.svg");
+          background-repeat: no-repeat;
+          background-size: contain; } }
       @media only screen and (min-width: 768px) and (max-width: 1023px) {
-        #header .navbar .logo img {
-          width: 225px; } }
-  #header .navbar .menu {
-    text-align: center;
-    margin-top: 2em; }
-    @media only screen and (max-width: 767px) {
-      #header .navbar .menu {
-        display: none; } }
-    #header .navbar .menu ul {
-      list-style-type: none; }
-      #header .navbar .menu ul .video {
-        margin-right: 345px; }
+        #header .navbar .logo {
+          margin: 0.5em 0;
+          right: 280px;
+          top: -20px; } }
+      #header .navbar .logo img {
+        background-position: contain;
+        width: 300px; }
+        @media only screen and (max-width: 767px) {
+          #header .navbar .logo img {
+            width: 135px;
+            height: 50px;
+            opacity: 0; } }
         @media only screen and (min-width: 768px) and (max-width: 1023px) {
-          #header .navbar .menu ul .video {
-            margin-right: 260px; } }
-    #header .navbar .menu li {
-      display: inline;
-      padding: 10px 1.2em;
-      margin-right: 40px; }
-      @media only screen and (min-width: 1024px) {
-        #header .navbar .menu li {
-          padding: 10px 1.2em;
-          margin-right: 40px; } }
-      #header .navbar .menu li:last-child {
-        margin-right: 0px; }
+          #header .navbar .logo img {
+            width: 225px; } }
+    #header .navbar .menu {
+      text-align: center;
+      margin-top: 2em; }
+      @media only screen and (max-width: 767px) {
+        #header .navbar .menu {
+          display: none; } }
+      #header .navbar .menu ul {
+        list-style-type: none; }
+        #header .navbar .menu ul .video {
+          margin-right: 345px; }
+          @media only screen and (min-width: 768px) and (max-width: 1023px) {
+            #header .navbar .menu ul .video {
+              margin-right: 260px; } }
+      #header .navbar .menu li {
+        display: inline;
+        padding: 10px 1.2em;
+        margin-right: 40px; }
+        @media only screen and (min-width: 1024px) {
+          #header .navbar .menu li {
+            padding: 10px 1.2em;
+            margin-right: 40px; } }
+        #header .navbar .menu li:last-child {
+          margin-right: 0px; }
+    #header .navbar nav {
+      display: none;
+      transition: all 0.3s;
+      width: 100%;
+      /*
+ * And let's fade it in from the left
+ */ }
+      @media only screen and (max-width: 767px) {
+        #header .navbar nav {
+          display: block; } }
+      #header .navbar nav a {
+        text-decoration: none;
+        color: #F5F5F5;
+        transition: color 0.3s ease; }
+        #header .navbar nav a:hover {
+          color: #D70778; }
+      #header .navbar nav #menuToggle {
+        display: block;
+        position: relative;
+        z-index: 1;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+         -ms-user-select: none;
+             user-select: none;
+        top: 16px; }
+        #header .navbar nav #menuToggle input {
+          display: block;
+          width: 40px;
+          height: 32px;
+          position: absolute;
+          top: 0px;
+          left: -5px;
+          cursor: pointer;
+          opacity: 0;
+          /* hide this */
+          z-index: 12;
+          /* and place it over the hamburger */
+          -webkit-touch-callout: none; }
+        #header .navbar nav #menuToggle ul a {
+          width: 100;
+          display: block;
+          border-bottom: 1px solid rgba(215, 7, 120, 0.2); }
+        #header .navbar nav #menuToggle span {
+          display: block;
+          width: 33px;
+          height: 4px;
+          margin-left: 10px;
+          margin-bottom: 5px;
+          position: relative;
+          background: #cdcdcd;
+          border-radius: 3px;
+          z-index: 3;
+          transform-origin: 4px 0px;
+          transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease; }
+          #header .navbar nav #menuToggle span:first-child {
+            transform-origin: 0% 0%;
+            margin-left: 10px; }
+          #header .navbar nav #menuToggle span:nth-last-child(2) {
+            transform-origin: 0% 100%;
+            margin-left: 10px; }
+        #header .navbar nav #menuToggle input:checked ~ span {
+          opacity: 1;
+          margin-left: 10px;
+          transform: rotate(45deg) translate(-2px, -1px);
+          background: #D70778; }
+          #header .navbar nav #menuToggle input:checked ~ span:nth-last-child(3) {
+            margin-left: 10px;
+            opacity: 0;
+            transform: rotate(0deg) scale(0.2, 0.2); }
+          #header .navbar nav #menuToggle input:checked ~ span:nth-last-child(2) {
+            margin-left: 10px;
+            opacity: 1;
+            transform: rotate(-45deg) translate(0, -1px); }
+      #header .navbar nav #menu {
+        position: absolute;
+        width: 100%;
+        margin: -100px 0 0 0px;
+        padding: 50px;
+        padding-top: 125px;
+        background: #1D1F16;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        /* to stop flickering of text in safari */
+        transform-origin: 0% 0%;
+        transform: translate(-100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
+        #header .navbar nav #menu li {
+          padding: 10px 0;
+          font-size: 22px; }
+      #header .navbar nav #menuToggle input:checked ~ ul {
+        transform: scale(1, 1);
+        opacity: 1;
+        width: 100%; }
 
 #home {
   background: white;
@@ -7061,6 +7169,8 @@ body {
     @media only screen and (max-width: 767px) {
       .slider .white-shade {
         display: none; } }
+  .slider .orbit-container .orbit-slide-number, .slider .orbit-container .orbit-timer {
+    z-index: 0; }
   .slider .orbit-container .orbit-caption {
     display: none; }
     @media only screen and (min-width: 768px) and (max-width: 1023px) {
@@ -7070,9 +7180,11 @@ body {
       .slider .orbit-container .orbit-caption {
         display: none; } }
   .slider .orbit-container .orbit-prev {
-    left: 20px; }
+    left: 20px;
+    z-index: 0; }
   .slider .orbit-container .orbit-next {
-    right: 20px; }
+    right: 20px;
+    z-index: 0; }
   .slider .orbit-container .orbit-progress {
     background: #F5F5F5; }
   .slider .orbit-container .orbit-bullets-container {
@@ -7103,3 +7215,81 @@ body {
           background: #D70778; }
         .slider .orbit-container .orbit-bullets-container .orbit-bullets li:active {
           background: #D70778; }
+
+.QuoteHolder {
+  width: 100%;
+  height: auto; }
+  .QuoteHolder .quoteBlok .quotewrap {
+    height: auto; }
+    .QuoteHolder .quoteBlok .quotewrap h5 {
+      padding-top: 20px; }
+      .QuoteHolder .quoteBlok .quotewrap h5:before {
+        padding-top: 20px;
+        content: "\201C";
+        font-family: Georgia, serif;
+        font-size: 30px;
+        font-weight: bold;
+        color: #D70778; }
+      .QuoteHolder .quoteBlok .quotewrap h5:after {
+        padding-top: 20px;
+        content: "\201D";
+        font-family: Georgia, serif;
+        font-size: 30px;
+        font-weight: bold;
+        color: #D70778; }
+      @media only screen and (min-width: 768px) and (max-width: 1023px) {
+        .QuoteHolder .quoteBlok .quotewrap h5 {
+          font-size: 1em; } }
+      @media only screen and (max-width: 767px) {
+        .QuoteHolder .quoteBlok .quotewrap h5 {
+          font-size: 0.8em; } }
+    .QuoteHolder .quoteBlok .quotewrap p {
+      margin-bottom: 0px; }
+  .QuoteHolder .quoteBlok .starCol {
+    margin-top: 10px;
+    padding-bottom: 30px; }
+
+.add {
+  width: 100%;
+  height: 200px; }
+  .add.white {
+    background: #F5F5F5; }
+  .add.black {
+    background: #1D1F16; }
+
+.full-width {
+  max-width: 1400px; }
+
+.footer {
+  background-color: #1D1F16;
+  padding: 1rem 1rem 1rem 1rem;
+  border-top: 4px solid #D70778;
+  text-align: center;
+  color: #fff; }
+  .footer i {
+    font-size: 1em; }
+  .footer li {
+    display: inline;
+    font-size: 1em; }
+  .footer h4 {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 2.5rem;
+    margin-bottom: 10px; }
+  .footer p, .footer a {
+    font-weight: 300;
+    font-size: .8em;
+    color: #fff;
+    margin-bottom: 0px; }
+  .footer .copy p {
+    line-height: 2.3; }
+  .footer .footer-links {
+    list-style-type: none; }
+    .footer .footer-links li {
+      font-size: 1em;
+      margin-right: 10px; }
+  .footer .footer-links-nav li {
+    margin-right: 20px;
+    text-transform: lowercase; }
