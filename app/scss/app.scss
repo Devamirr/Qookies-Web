@@ -51,7 +51,6 @@
 @import 'colors';
 @import 'base';
 // @import 'typography';
-@import 'slick';
 @import 'kitchenSink';
 
   $mq-mobile-narrower: "only screen and (max-width : 320px)";
@@ -77,6 +76,8 @@
   // on p = smoooth font scaling font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 
   body{
+
+    overflow: auto;
     background: $LightDark;
     width: 100%; height: auto;
 
@@ -86,30 +87,32 @@
     }
   }
 
-  #header { transition: all $transition; font-size: 0.9em; font-weight: 300; background: $LightDark; margin: 0 auto; padding: 2em 0 1em; border-bottom: 4px solid $main;
+  #header { transition: all $transition; font-size: 0.9em; font-weight: 300; background: $LightDark; margin: 0 auto;  border-bottom: 4px solid $main;
     @media #{$mq-tablet}{ padding: 1em 0;}
-    @media #{$mq-mobile-normal}{ height: 4em; padding: 0 ; }
+    @media #{$mq-mobile-normal}{ height: 4em; padding: 0 ; position: fixed; top: 0; width: 100% ; z-index: 15;}
     a { color: $text-color; }
     .header-inner { max-width: 1024px; margin: 0 auto; position: relative; height: 4em;
       @media #{$mq-tablet}{ max-width: 768px; height: 3em; }
       @media #{$mq-mobile-normal}{ height: 4em; padding: 0 1em 1em; }
     }
     .navbar {  top: 0; height: 100%;
-      @media #{$mq-mobile-normal}{ left: 0; height: 100%; width: 100%; position: absolute;;}
-      .leaf { transition: all $transition; border-radius: 20px;
-        &:hover { background: $main;  }
+      @media #{$mq-mobile-normal}{ left: 0; height: 100%; width: 100%; position: absolute; }
+    }
+    .logo { margin: 1em 0; position: absolute; right: 360px; text-align: center; top: -38px; z-index: 5;
+      @media #{$mq-mobile-normal}{ position: absolute; transform: translate(50%, 0px); margin: 0 auto;  width: 60px; height: 50px; right: 50%; top: 5px; background: url("../images/crown.jpg.svg"); background-repeat: no-repeat;; background-size: contain;}
+      @media #{$mq-tablet}{ margin: 0.5em 0; right: 280px; top: -20px; }
+      img { background-position: contain; width: 300px;
+        @media #{$mq-mobile-normal}{ width: 135px; height: 50px; opacity: 0;}
+        @media #{$mq-tablet}{ width: 225px; }
        }
-      .logo { margin: 1em 0; position: absolute; right: 360px; text-align: center; top: -38px; z-index: 5;
-        @media #{$mq-mobile-normal}{ position: absolute; transform: translate(50%, 0px); margin: 0 auto;  width: 60px; height: 50px; right: 50%; top: 5px; background: url("../images/crown.jpg.svg"); background-repeat: no-repeat;; background-size: contain;}
-        @media #{$mq-tablet}{ margin: 0.5em 0; right: 280px; top: -20px; }
-        img { background-position: contain; width: 300px;
-          @media #{$mq-mobile-normal}{ width: 135px; height: 50px; opacity: 0;}
-          @media #{$mq-tablet}{ width: 225px; }
-         }
       }
       .menu { text-align: center; margin-top: 2em;
         @media #{$mq-mobile-normal}{ display:none }
-        ul { list-style-type:none;
+        ul { list-style-type:none; transition: all $transition;
+          li { border-radius: 20px; transition: all $transition;
+            &:hover { background: $main;  }
+          }
+          .active {  background:$main; border-radius: 20px; }
           .video { margin-right: 345px;
              @media #{$mq-tablet}{ margin-right: 260px;}
           }
@@ -120,83 +123,38 @@
           &:last-child { margin-right: 0px }
         }
       }
+      // Mobile Nav
       nav { display: none; transition: all $transition; width: 100%;
         @media #{$mq-mobile-normal}{ display: block;}
         a { text-decoration: none; color: $snow; transition: color 0.3s ease;
             &:hover { color: $main; }
         }
+        .activeMob { color: $main; }
         #menuToggle { display: block; position: relative; z-index: 1; -webkit-user-select: none; user-select: none; top: 16px;
-          input { display: block; width: 40px; height: 32px; position: absolute; top: 0px; left: -5px; cursor: pointer; opacity: 0; /* hide this */ z-index: 12; /* and place it over the hamburger */ -webkit-touch-callout: none; }
-  ul {
-    a { width: 100; display: block; border-bottom: 1px solid rgba(215, 7, 120, 0.2); }
-  }
-  span {
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-left: 10px;
-    margin-bottom: 5px;
-    position: relative;
-    background: #cdcdcd;
-    border-radius: 3px;
-    z-index: 3;
-    transform-origin: 4px 0px;
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
-    &:first-child {
-      transform-origin: 0% 0%; margin-left: 10px;
-    }
-    &:nth-last-child(2) {
-      transform-origin: 0% 100%; margin-left: 10px;
-    }
-  }
-  input:checked ~ span {
-    opacity: 1;
-    margin-left: 10px;
-    transform: rotate(45deg) translate(-2px, -1px);
-    background: $main;
-    &:nth-last-child(3) {
-      margin-left: 10px;
-      opacity: 0;
-      transform: rotate(0deg) scale(0.2, 0.2);
-    }
-    &:nth-last-child(2) {
-      margin-left: 10px;
-      opacity: 1;
-      transform: rotate(-45deg) translate(0, -1px);
-    }
-  }
-}
-#menu {
-  position: absolute;
-  width: 100%;
-  margin: -100px 0 0 0px;
-  padding: 50px;
-  padding-top: 125px;
-  background: $LightDark;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-  li {
-    padding: 10px 0;
-    font-size: 22px;
-  }
-}
-
-/*
- * And let's fade it in from the left
- */
-
-#menuToggle input:checked ~ ul {
-  transform: scale(1, 1);
-  opacity: 1;
-  width: 100%;
-}
+          input { display: block; width: 55px; height: 32px; position: absolute; top: 0px; left: -5px; cursor: pointer; opacity: 0; /* hide this */ z-index: 12; /* and place it over the hamburger */ -webkit-touch-callout: none; }
+          ul {
+            a { width: 100; display: block; border-bottom: 1px solid rgba(215, 7, 120, 0.2); }
+          }
+          span { display: block; width: 33px; height: 4px; margin-left: 10px; margin-bottom: 5px; position: relative; background: #cdcdcd; border-radius: 3px; z-index: 3; transform-origin: 4px 0px;
+                transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+            &:first-child { transform-origin: 0% 0%; margin-left: 10px; }
+            &:nth-last-child(2) { transform-origin: 0% 100%; margin-left: 10px; }
+          }
+          input:checked ~ span { opacity: 1; margin-left: 10px; transform: rotate(45deg) translate(-2px, -1px); background: $main; &:nth-last-child(3) { margin-left: 10px; opacity: 0; transform: rotate(0deg) scale(0.2, 0.2); }
+            &:nth-last-child(2) { margin-left: 10px; opacity: 1; transform: rotate(-45deg) translate(0, -1px); }
+          }
+        }
+        #menu { position: absolute; width: 100%; padding: 50px; height: 100vh; top: 0; position: fixed; background: $LightDark; list-style-type: none; -webkit-font-smoothing: antialiased;
+          /* to stop flickering of text in safari */ transform-origin: 0% 0%; transform: translate(-100%, 0); transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+          li { padding: 10px 0; font-size: 22px; }
+        }
+        /* And let's fade it in from the left */
+        #menuToggle input:checked ~ ul { transform: scale(1, 1); opacity: 1; width: 100%; top: 0;
+        hr { background: none; }
+        }
       }
     }
-  }
+
   //
   //start homepage styles
   #home { background: white; width: 100%; height: 100%; }
@@ -210,18 +168,23 @@
     }
   }
   .orbit-container {
+      @media #{$mq-mobile-normal}{ margin-top: 57px; }
     .orbit-slide-number, .orbit-timer { z-index: 0; }
+    .orbit-timer { width: 100%; top:0; left: 0;position: absolute;
+      .orbit-progress { position: absolute; top: 0; left: 0; height: 4px;}
+    }
+    .orbit-timer.paused span, .orbit-timer span  { top: 10px; right: 10px }
     .orbit-caption { display: none;
       @media #{$mq-tablet}{ display:none;}
       @media #{$mq-mobile-normal}{ display: none;}
      }
-     .orbit-prev {
-       left: 20px; z-index: 0;
-     }
-     .orbit-next {
-       right: 20px; z-index: 0;
-     }
-     .orbit-progress { background: $snow; }
+    .orbit-prev {
+      left: 20px; z-index: 4;
+    }
+    .orbit-next {
+      right: 20px; z-index: 4;
+    }
+    .orbit-progress { background: $snow; }
     .orbit-bullets-container {   margin: 0px; position: absolute; bottom:0px; top: inherit; right: 0px; z-index: 4;
       .orbit-bullets { margin: 0px 50px 30px auto;
         @media #{$mq-tablet}{ margin: 0px 50px 20px auto; }
@@ -232,7 +195,6 @@
           &:active { background: $main; }
         }
       }
-
     }
   }
 }
@@ -243,55 +205,55 @@
         &:before { padding-top: 20px; content: "\201C"; font-family: Georgia, serif; font-size: 30px; font-weight: bold; color: $main; }
         &:after { padding-top: 20px; content: "\201D"; font-family: Georgia, serif; font-size: 30px; font-weight: bold; color: $main; }
         @media #{$mq-tablet}{ font-size: 1em; }
+        @media #{$mq-mobile-normal}{ font-size: 1em; }
+      }
+      p { margin-bottom: 0px;
         @media #{$mq-mobile-normal}{ font-size: 0.8em; }
       }
-      p { margin-bottom: 0px; }
     }
     .starCol { margin-top: 10px;  padding-bottom: 30px; }
   }
 }
 
-.add { width: 100%; height: 200px;
+.add { width: 100%; height: 250px; padding: 50px 10px 10px 0px;
   &.white { background: $snow; }
   &.black { background: $LightDark; }
+  &.grad { background: #e6e6e6; /* Old browsers */ /* FF3.6-15 */
+  background: -webkit-linear-gradient(#e6e6e6 0%, #e5e3e3 100%);
+  background: -o-linear-gradient(#e6e6e6 0%, #e5e3e3 100%);
+  background: linear-gradient(#e6e6e6 0%, #e5e3e3 100%); /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6e6e6', endColorstr='#e5e3e3',GradientType=0 ); /* IE6-9 */
+    }
+  &.secondBlock {  }
+  &.thirdBlock {  }
 }
 
-
-// footer { height: 60px; width: 100%; background: $LightDark; border-top: 4px solid $main; position: relative;
-//   .text-field { height: 100%; width: 100%;
-//     .rights, .footerNav { float:left; width: calc(100% / 3); }
-//     p { margin-bottom: 0px; font-size: 0.8em; color: $snow; transform: translate(0%, -50%); position: relative; height: auto;  padding-left: 20px;
-//       @media #{$mq-mobile-normal}{ font-size: 0.5em;  }
-//     }
-//     ul {
-//       li { display: inline; color:red; }
-//     }
-//   }
-// }
 .full-width {
   max-width: 1400px;
 }
 
-$text-color: #fff;
-
 // footer CSS
 
-.footer { background-color: $LightDark; padding: 1rem 1rem 1rem 1rem;; border-top: 4px solid $main; text-align: center; color: $text-color;
-  i { font-size: 1em; }
+.footer { background-color: $LightDark; padding: 1rem 1rem 1rem 1rem; border-top: 4px solid $main; text-align: center; color: $gray;
+  i { font-size: 1em;  }
   li { display: inline; font-size: 1em;}
-  h4 { color: $text-color; font-size: 1em; font-weight: 400; text-transform: uppercase; margin-top: 2.5rem; margin-bottom: 10px; }
-  p, a { font-weight: 300; font-size: .8em; color: $text-color; margin-bottom: 0px; }
-  .copy {  p { line-height: 2.3;}  }
+  h4 {  font-size: 1em; font-weight: 400; text-transform: uppercase; margin-top: 2.5rem; }
+  p, a { font-weight: 300; font-size: .8em;  margin-bottom: 0px; }
+  .copy { margin-top: 5px;
+    p { line-height: 2.3;}
+  }
   .footer-links { list-style-type: none;
-    li { font-size: 1em; margin-right: 10px; }
+    li { font-size: 1.4em; margin-right: 10px;
+      a { transition: all $transition;
+        &:hover { color: $text-color!important; }
+      }
+    }
   }
-  .footer-links-nav {
-    li { margin-right: 20px; text-transform: lowercase;}
+  .footer-links-nav {  margin-top: 5px;
+    li { margin-right: 20px; text-transform: lowercase;
+      a { transition: all $transition;
+        &:hover { color: $text-color!important; }
+      }
+    }
   }
-}
-@media only screen and (min-width: 40.063em) {
-.footer {
-  .columns:nth-child(n+2) {
-  }
- }
 }

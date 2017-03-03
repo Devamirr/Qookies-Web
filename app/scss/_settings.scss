@@ -924,8 +924,8 @@ $orbit-caption-height: auto;
 // We use these to control the left/right nav styles
 $orbit-nav-bg: transparent;
 $orbit-nav-bg-hover: none;
-$orbit-nav-arrow-color: $main;
-$orbit-nav-arrow-color-hover: $snow;
+$orbit-nav-arrow-color: $snow;
+$orbit-nav-arrow-color-hover: $main;
 
 // We use these to control the timer styles
 $orbit-timer-bg: rgba(255,255,255,0.3);
@@ -938,7 +938,7 @@ $orbit-bullet-radius: rem-calc(9);
 
 // We use these to controls the style of slide numbers
 $orbit-slide-number-bg: rgba(0,0,0,0);
-$orbit-slide-number-font-color: $main;
+$orbit-slide-number-font-color: $snow;
 $orbit-slide-number-padding: rem-calc(5);
 
 // Graceful Loading Wrapper and preloader
