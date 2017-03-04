@@ -6841,7 +6841,7 @@ body, html {
 /* all app scss styles here */
 body {
   overflow: auto;
-  background: #1D1F16;
+  background: #F5F5F5;
   width: 100%;
   height: auto; }
   body a {
@@ -6872,11 +6872,11 @@ body {
     max-width: 1024px;
     margin: 0 auto;
     position: relative;
-    height: 4em; }
+    height: 6em; }
     @media only screen and (min-width: 768px) and (max-width: 1023px) {
       #header .header-inner {
         max-width: 768px;
-        height: 3em; } }
+        height: 6em; } }
     @media only screen and (max-width: 767px) {
       #header .header-inner {
         height: 4em;
@@ -6895,7 +6895,7 @@ body {
     position: absolute;
     right: 360px;
     text-align: center;
-    top: -38px;
+    top: -8px;
     z-index: 5; }
     @media only screen and (max-width: 767px) {
       #header .logo {
@@ -6926,14 +6926,14 @@ body {
         #header .logo img {
           width: 225px; } }
   #header .menu {
-    text-align: center;
-    margin-top: 2em; }
+    text-align: center; }
     @media only screen and (max-width: 767px) {
       #header .menu {
         display: none; } }
     #header .menu ul {
       list-style-type: none;
-      transition: all 0.3s; }
+      transition: all 0.3s;
+      line-height: 6; }
       #header .menu ul li {
         border-radius: 20px;
         transition: all 0.3s; }
@@ -7213,6 +7213,10 @@ body {
     min-height: 443px;
     width: 100%;
     background-size: center center; }
+    @media only screen and (max-width: 767px) {
+      #about .aboutPic {
+        margin-top: 57px;
+        min-height: 200px; } }
   #about .add {
     width: 100%;
     height: 350px;
@@ -7237,6 +7241,65 @@ body {
     @media only screen and (max-width: 767px) {
       #about .white-shade {
         display: none; } }
+
+#Menu .headTekst {
+  padding: 70px; }
+  @media only screen and (max-width: 767px) {
+    #Menu .headTekst {
+      padding: 80px 0px 0px 0px;
+      font-size: 1em; } }
+  @media only screen and (max-width: 767px) {
+    #Menu .headTekst h1 {
+      font-size: 1.5em; } }
+  #Menu .headTekst h1 i {
+    font-size: 0.7em;
+    padding: 0px 10px 20px 10px; }
+    @media only screen and (max-width: 767px) {
+      #Menu .headTekst h1 i {
+        padding: 0px 5px 0px 5px; } }
+  #Menu .headTekst h1 .paddRight {
+    margin-right: 10px;
+    transform: translate(0px, -4px); }
+  #Menu .headTekst h1 .paddLeft {
+    margin-left: 10px;
+    transform: translate(0px, -4px); }
+
+#Menu .tes #portfolio {
+  width: 100%;
+  margin: 20px 0px; }
+
+#Menu .tes .tile {
+  float: left;
+  min-height: 300px;
+  padding: 20px;
+  border: 1px #fff solid; }
+  #Menu .tes .tile:hover {
+    opacity: 0.5; }
+
+#Menu .tes .web {
+  background: #00C5CD; }
+
+#Menu .tes .flyers {
+  background: #CC3232; }
+
+#Menu .tes .bcards {
+  background: #ddd; }
+
+#Menu .tes p {
+  padding: 10px;
+  border-bottom: 1px #ccc dotted;
+  text-decoration: none;
+  font-family: Arial;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #333;
+  display: block;
+  float: left; }
+
+#Menu .tes p:hover {
+  cursor: pointer;
+  background: #333;
+  color: #eee; }
 
 .footer {
   background-color: #1D1F16;
